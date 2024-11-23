@@ -58,12 +58,11 @@ if __name__ == "__main__":
 
     caesar = CaesarsCipher()
 
-    tries = caesar.decrypt("o3zR v..D0?yRA0R8FR8v47w0ER4.R1WdC!sLF5D")
-    for k, v in tries.items():
-        print(f'{k}: {v}')
+    with open("password.txt", "w") as file:
+        solved = caesar.decrypt("o3zR v..D0?yRA0R8FR8v47w0ER4.R1WdC!sLF5D")
+        for k, v in solved.items():
+            file.write(f'Solved {k}: {v}\n')
 
-    codes = caesar.encrypt("The password to my mailbox is fBIvqX5yjw")
-    for k, v in codes.items():
-        print(f'{k}: {v}')
-
-    # вывод в файл
+        encoded = caesar.encrypt("The password to my mailbox is fBIvqX5yjw")
+        for k, v in encoded.items():
+            file.write(f'Encoded {k}: {v}')
